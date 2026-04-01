@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midterm Lab Exam - Smart Plant Watering System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 2px solid #20b2aa;
+            padding-bottom: 20px;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* Content Section */
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section h2 {
+            font-size: 18px;
+            color: #20b2aa;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Links Section */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .link-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px;
+            background: #f9f9f9;
+            border-left: 4px solid #20b2aa;
+        }
+        
+        .link-item img {
+            width: 120px;
+            height: 120px;
+            border: 1px solid #ddd;
+        }
+        
+        .link-info h3 {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .link-info a {
+            font-size: 12px;
+            color: #20b2aa;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        
+        .link-info a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Expo Go Section */
+        .expo-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .expo-qr {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ddd;
+            flex-shrink: 0;
+        }
+        
+        .expo-info {
+            flex: 1;
+        }
+        
+        .expo-info p {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        .expo-info strong {
+            color: #333;
+        }
+        
+        .expo-info-only {
+            padding: 15px;
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .expo-info-only h3 {
+            font-size: 13px;
+            color: #333;
+            margin-bottom: 12px;
+        }
+        
+        .expo-info-only ol {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+        
+        .expo-info-only li {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+        
+        .expo-info-only code {
+            background: #e8e8e8;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            color: #333;
+        }
+        
+        .expo-info-only p {
+            font-size: 12px;
+            color: #666;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .team-member {
+            padding: 15px;
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            text-align: center;
+        }
+        
+        .team-member h3 {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .github-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: #999;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .team-member p {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .team-member a {
+            color: #20b2aa;
+            text-decoration: none;
+        }
+        
+        .team-member a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            font-size: 11px;
+            color: #999;
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Smart Plant Watering System</h1>
+            <p>Applications Development and Emerging Technologies - Midterm Lab Exam</p>
+        </div>
+        
+        <!-- Project Links -->
+        <div class="section">
+            <h2>Project Links</h2>
+            <div class="links">
+                <!-- Web App Repo -->
+                <div class="link-item">
+                    <div class="link-info">
+                        <h3>Web App Repository</h3>
+                        <a href="https://github.com/wlasah/Smart-Plant-Watering-System.git" target="_blank">https://github.com/wlasah/Smart-Plant-Watering-System.git</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile App Repo -->
+                <div class="link-item">
+                    <div class="link-info">
+                        <h3>Mobile App Repository</h3>
+                        <a href="https://github.com/wlasah/Smart-Plant-Watering-System-Mobile.git" target="_blank">https://github.com/wlasah/Smart-Plant-Watering-System-Mobile.git</a>
+                    </div>
+                </div>
+                
+                <!-- Deployed App -->
+                <div class="link-item">
+                    <div class="link-info">
+                        <h3>Deployed App (Vercel)</h3>
+                        <a href="https://smart-plant-watering-system.vercel.app/" target="_blank">https://smart-plant-watering-system.vercel.app/</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Expo Go QR Code -->
+        <div class="section">
+            <h2>Mobile App - Expo Go</h2>
+            <div class="expo-info-only">
+                <h3>How to Run on Your Mobile Device:</h3>
+                <ol>
+                    <li>Download Expo Go app (iOS: App Store | Android: Google Play)</li>
+                    <li>Navigate to: <strong>Smart-Plant-Watering-System-Mobile</strong> folder</li>
+                    <li>Run: <code>npx expo start</code></li>
+                    <li>Choose platform (iOS/Android) or scan QR code with Expo Go</li>
+                    <li>App will load on your mobile device</li>
+                </ol>
+                <p><strong>Alternative:</strong> Clone the Mobile App Repository and follow setup instructions in <code>GETTING_STARTED.md</code></p>
+            </div>
+        </div>
+        
+        <!-- Team Members -->
+        <div class="section">
+            <h2>Team Members</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <h3>Lawrence Agan</h3>
+                    <p class="github-label">Github Username</p>
+                    <p><a href="https://github.com/wlasah" target="_blank">@wlasah</a></p>
+                </div>
+                <div class="team-member">
+                    <h3>Jordan Godoy</h3>
+                    <p class="github-label">Github Username</p>
+                    <p><a href="https://github.com/jds2222" target="_blank">@jds2222</a></p>
+                </div>
+                <div class="team-member">
+                    <h3>Megkayla Lag-e</h3>
+                    <p class="github-label">Github Username</p>
+                    <p><a href="https://github.com/megkayla-lage" target="_blank">@megkayla-lage</a></p>
+                </div>
+                <div class="team-member">
+                    <h3>Lyle Medina</h3>
+                    <p class="github-label">Github Username</p>
+                    <p><a href="https://github.com/medinalyle184" target="_blank">@medinalyle184</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>Submitted: April 1, 2026</p>
+        </div>
+    </div>
+</body>
+</html>
