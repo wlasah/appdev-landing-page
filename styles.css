@@ -1,0 +1,458 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #10b981;
+    --secondary-color: #6366f1;
+    --accent-color: #f59e0b;
+    --text-dark: #0f172a;
+    --text-light: #64748b;
+    --border-color: #e2e8f0;
+    --bg-light: #f8fafc;
+}
+
+body {
+    font-family: 'DM Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Header Styles */
+.header {
+    text-align: center;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.logo-icon {
+    font-size: 40px;
+    animation: bounce 3s infinite;
+}
+
+.header h1 {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--text-dark);
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.description {
+    font-size: 16px;
+    color: var(--text-light);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Links Grid */
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.link-card {
+    background: white;
+    border: 1.5px solid var(--border-color);
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.link-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.link-card:hover::before {
+    transform: scaleX(1);
+}
+
+.link-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary-color);
+}
+
+/* Card Variants */
+.link-card.web-repo {
+    border-top-color: var(--secondary-color);
+}
+
+.link-card.mobile-repo {
+    border-top-color: var(--accent-color);
+}
+
+.link-card.deployed-app {
+    border-top-color: var(--primary-color);
+}
+
+/* Card Icon */
+.card-icon {
+    font-size: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(99, 102, 241, 0.1));
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.link-card:hover .card-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Card Text */
+.link-card h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.link-card p {
+    font-size: 14px;
+    color: var(--text-light);
+    flex: 1;
+}
+
+/* Link Arrow */
+.link-arrow {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+    margin-top: 8px;
+}
+
+.link-card:hover .link-arrow {
+    transform: translateX(6px);
+}
+
+/* Team Section */
+.team-section {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+.team-section h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+.team-member {
+    background: white;
+    border: 1.5px solid var(--border-color);
+    border-radius: 16px;
+    padding: 28px;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.team-member:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary-color);
+}
+
+.member-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover .member-avatar {
+    transform: scale(1.1);
+}
+
+.team-member h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.github-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+    margin-top: 4px;
+}
+
+.github-handle {
+    font-size: 14px;
+    margin: 0;
+}
+
+.github-handle a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.github-handle a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-color);
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.footer p {
+    font-size: 13px;
+    color: var(--text-light);
+    margin: 4px 0;
+}
+
+/* Animations */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 16px;
+        gap: 32px;
+    }
+
+    .header h1 {
+        font-size: 32px;
+    }
+
+    .logo-icon {
+        font-size: 32px;
+    }
+
+    .links-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .link-card {
+        padding: 24px 20px;
+    }
+
+    .card-icon {
+        font-size: 40px;
+        height: 70px;
+    }
+
+    .link-card h2 {
+        font-size: 18px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .team-section h2 {
+        font-size: 26px;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .team-member {
+        padding: 20px;
+    }
+
+    .member-avatar {
+        width: 70px;
+        height: 70px;
+        font-size: 20px;
+    }
+
+    .team-member h3 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .logo {
+        gap: 8px;
+    }
+
+    .logo-icon {
+        font-size: 28px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .link-card {
+        padding: 20px 16px;
+        gap: 12px;
+    }
+
+    .card-icon {
+        font-size: 36px;
+        height: 60px;
+    }
+
+    .link-card h2 {
+        font-size: 16px;
+    }
+
+    .link-card p {
+        font-size: 13px;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+
+    .footer p {
+        font-size: 12px;
+    }
+
+    .team-section h2 {
+        font-size: 22px;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .team-member {
+        padding: 16px;
+    }
+
+    .member-avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 18px;
+    }
+
+    .team-member h3 {
+        font-size: 15px;
+    }
+
+    .github-handle {
+        font-size: 12px;
+    }
+}
